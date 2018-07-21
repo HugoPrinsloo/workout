@@ -8,10 +8,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14234.1"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Workout Start View-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Workout_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="WorkoutStartView" customModule="Workout_WatchKit_Extension">
                     <items>
                         <label alignment="left" text="0:00:00" id="xLV-r2-YtX"/>
                         <label alignment="left" text="0.0 cal" id="uEh-se-fRA"/>

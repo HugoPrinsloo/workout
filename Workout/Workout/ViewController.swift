@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import HealthKit
 
 class ViewController: UIViewController {
+    
+    let healthStore = HKHealthStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let allTypes = Set([HKObjectType.workoutType(),
+                            HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                            HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+                            ])
+        
+        healthStore.requestAuthorization(toShare: allTypes, read: allTypes) { (success, error) in
+            // Handle error
+        }
+
     }
 
 

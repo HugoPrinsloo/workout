@@ -8,7 +8,30 @@
 
 import WatchKit
 import Foundation
+import HealthKit
 
+class WorkoutStartView: WKInterfaceController {
+    
+    let healthStore = HKHealthStore()
+    
+    override func didAppear() {
+        super.didAppear()
+        
+        let typesToShare: Set = [
+            HKQuantityType.workoutType()
+        ]
+        
+        let typesToRead: Set = [
+            HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
+            HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+        ]
+        
+        
+        healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
+            // Handle error
+        }
+    }
+}
 
 class InterfaceController: WKInterfaceController {
 
